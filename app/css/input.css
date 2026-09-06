@@ -57,6 +57,10 @@
         }
     }
 
+    .spinner{
+        @apply border-[4px] animate-spin border-primary border-t-transparent rounded-full aspect-square h-8;
+    }
+
     footer{
         @apply flex items-center justify-center gap-2 py-6 px-8 text-center border-t border-neutral-300 h-20;
     }

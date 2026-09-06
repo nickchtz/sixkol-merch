@@ -5,13 +5,15 @@
     </hgroup>
 
     <div class="products-grid">
-        <div class="product-card">
-            <img src="img/products/placeholder.jpg" alt="">
-            <div class="product-info">
-                <p class="product-title">T-shirt</p>
-                <p class="product-description">Short product Description, not too long</p>
-                <span>$30.00</span>
+        <template x-data x-for="(product, index) in $store.products" :key="index">
+            <div class="product-card">
+                <img :src="`img/products/${product.productImage}`" alt="">
+                <div class="product-info">
+                    <p class="product-title" x-text="product.productName"></p>
+                    <p class="product-description" x-text="product.productDescription || 'No description provided.'"></p>
+                    <span x-text="product.productPrice + ` &euro;`"></span>
+                </div>
             </div>
-        </div>
+        </template>
     </div>
 </section>

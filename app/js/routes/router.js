@@ -3,6 +3,12 @@ import '../libs/lucide.js';
 
 export const router = {
     async init() {
+        document.querySelector('#app').innerHTML = `
+            <div class="abs-center">
+                <div class="spinner"></div>
+            </div>
+        `;
+
         await this.render(window.location.hash || '#home');
 
         window.addEventListener('hashchange', async () => {
@@ -12,6 +18,8 @@ export const router = {
     },
     async render(route) {
         const page = routes[route] || routes['#notFound'];
+
+
 
         const response = await fetch(`./app/views/${page.file}`);
         const html = await response.text();
