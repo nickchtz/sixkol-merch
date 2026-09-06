@@ -1,3 +1,24 @@
+<dialog class="product-modal" id="product-modal" x-data>
+    <div class="modal-top-bar">
+        <span>SixKol</span>
+        <a href="#">✖</a>
+    </div>
+    <div class="modal-content">
+        <div class="product-image">
+            <img :src="`img/products/${product.productImage}`" alt="">
+        </div>
+        <div class="product-info">
+            <hgroup class="mb-4">
+                <h2 class="text-5xl font-bold" x-text="product.productName"></h2>
+                <span class="text-2xl font-bold" x-text="product.productPrice + ` &euro;`"></span>
+                <p class="text-lg text-faded" x-text="product.productDescription || 'No description provided.'"></p>
+            </hgroup>
+            <a href="#info" class="button w-full text-center">Order Info</a>
+        </div>
+    </div>
+
+</dialog>
+
 <section class="wrapper" id="home-section">
     <hgroup>
         <h1 class="section-header">T-shirts</h1>
@@ -6,7 +27,7 @@
 
     <div class="products-grid">
         <template x-data x-for="(product, index) in $store.products" :key="index">
-            <div class="product-card">
+            <div class="product-card" @click="$store.viewProduct(product)">
                 <img :src="`img/products/${product.productImage}`" alt="">
                 <div class="product-info">
                     <p class="product-title" x-text="product.productName"></p>

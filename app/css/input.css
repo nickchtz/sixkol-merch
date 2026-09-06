@@ -12,6 +12,11 @@
 }
 
 @layer base{
+
+    *{
+        outline: transparent;
+    }
+
     body {
         scroll-behavior: smooth;
         overflow-x: hidden; 
@@ -54,6 +59,30 @@
             li a.active{
                 @apply font-black;
             }
+        }
+    }
+
+    .product-modal{
+        @apply w-190 abs-center border border-neutral-300;
+
+        .modal-top-bar{
+            @apply px-4 py-2 flex justify-between items-center border-b border-neutral-300;
+
+            span{
+                @apply text-primary font-black;
+            }
+            
+            a{
+                @apply block px-5 py-1.5 bg-primary text-white text-sm;
+            }
+        }
+
+        .modal-content{
+            @apply p-10 grid grid-cols-1 md:grid-cols-2 gap-6;
+        }
+
+        img{
+            @apply w-full;
         }
     }
 
